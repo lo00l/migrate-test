@@ -16,5 +16,13 @@ jobs:
         ports:
           - 9000:9000
     steps:
-      - name: echo
-        run: echo hello
+      - uses: actions/checkout@v2
+
+      - name: Set up Go
+        uses: actions/setup-go@v2
+        with:
+          go-version: 1.17
+
+      - name: Test
+        working-directory: v1
+        run: go test -v ./...
