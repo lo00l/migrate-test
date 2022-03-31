@@ -1,0 +1,20 @@
+name: CI
+
+on: [push]
+
+jobs:
+  test-v1:
+    name: Test
+    runs-on: ubuntu-20.04
+    services:
+      clickhouse:
+        image: yandex/clickhouse-server:21.11
+        env:
+          CLICKHOUSE_USER: test
+          CLICKHOUSE_PASSWORD: test
+          CLICKHOUSE_DB: test
+        ports:
+          - 9000:9000
+    steps:
+      - name: echo
+        run: echo hello
