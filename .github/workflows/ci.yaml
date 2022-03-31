@@ -26,3 +26,8 @@ jobs:
       - name: Test
         working-directory: v1
         run: go test -v ./...
+        env:
+          DB_HOST: clickhouse:9000
+          DB_USER: test
+          DB_PASSWORD: test
+          DB_NAME: test
